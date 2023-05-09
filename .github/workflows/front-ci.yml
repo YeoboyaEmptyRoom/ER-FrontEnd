@@ -2,24 +2,27 @@ name: front-ci
 
 on:
   pull_request:
-    branches:
+     branches:
       - 'develop'
       - 'master'
   push:
     branches:
       - 'develop'
       - 'master'
-
 jobs:
-  front-ci:
+  GCMS-CI:
     runs-on: ubuntu-latest
-
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8.2.0
-          
-      - run: pnpm i --frozen-lockfile
-      - run: pnpm build:shared
-      - run: pnpm build:app
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn' 
+    - run: yarn install --frozen-lockfile
+    - run: yarn build
+    - run: yarn test
