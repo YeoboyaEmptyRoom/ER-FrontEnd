@@ -10,7 +10,7 @@ on:
       - 'develop'
       - 'master'
 jobs:
-  GCMS-CI:
+  FRONT-CI:
     runs-on: ubuntu-latest
     
     steps:
