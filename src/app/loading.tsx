@@ -1,3 +1,5 @@
+'use client';
+
 export default function Loading() {
-  return <></>;
+  return <h1>safdsafsda</h1>;
 }
