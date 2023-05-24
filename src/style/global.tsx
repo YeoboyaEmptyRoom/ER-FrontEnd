@@ -8,7 +8,7 @@ const color = {
 
   '--NATURAL_N10': '#000000',
   '--NATURAL_N20': '#D9D9D9',
-  '--NATRUAL_N30': '#FFFFFF',
+  '--NATURAL_N30': '#FFFFFF',
 
   '--SYSTEM_ERROR': '#D84D4D',
   '--SYSTEM_POSITIVE': '#2E8546',
@@ -19,14 +19,14 @@ const color = {
 
 const cssColor = (color: string) => `var(--${color})`;
 
-const palete = {
+export const Palette = {
   PRIMARY_P10: cssColor('PRIMARY_P10'),
   PRIMARY_P20: cssColor('PRIMARY_P20'),
   PRIMARY_P30: cssColor('PRIMARY_P30'),
   PRIMARY_P40: cssColor('PRIMARY_P40'),
   NATURAL_N10: cssColor('NATURAL_N10'),
   NATURAL_N20: cssColor('NATURAL_N20'),
-  NATRUAL_N30: cssColor('NATURAL_N30'),
+  NATURAL_N30: cssColor('NATURAL_N30'),
 
   SYSTEM_ERROR: cssColor('SYSTEM_ERROR'),
   SYSTEM_POSITIVE: cssColor('SYSTEM_POSITIVE'),
@@ -50,7 +50,5 @@ const style = css`
 const GlobalStyle = () => {
   return <Global styles={style}></Global>;
 };
-
-export { color };
 
 export default GlobalStyle;
