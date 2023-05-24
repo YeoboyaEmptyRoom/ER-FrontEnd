@@ -1,10 +1,24 @@
 import styled from '@emotion/styled';
 
+export const Layer = styled.form`
+  width: 250%;
+  display: flex;
+  margin-left: 150%;
+  justify-content: space-between;
+
+  > div {
+    transform: translateX(
+      ${({ step }: { step: number }) => (step - 1) * -150}%
+    );
+  }
+`;
+
 export const Form = styled.div`
-  width: 100%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   gap: 5em;
+  transition: 1s;
 `;
 
 export const InputBox = styled.div`

@@ -1,4 +1,4 @@
-import AuthForm from '../../molecules/SignupForm/FirstStep';
+import AuthForm from '../../molecules/SignupForm';
 import AuthLogo from '../../molecules/AuthLogo';
 import { Layer } from './style';
 
