@@ -1,6 +1,7 @@
 'use client';
 
 import GlobalStyle from '@/style/global';
+import { RecoilRoot } from 'recoil';
 import '../style/globals.css';
 
 export default function RootLayout({
@@ -9,9 +10,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <RecoilRoot>
       <GlobalStyle />
-      <body>{children}</body>
-    </html>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </RecoilRoot>
   );
 }

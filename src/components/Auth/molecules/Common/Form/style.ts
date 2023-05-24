@@ -43,3 +43,17 @@ export const EmailBox = styled.div`
     width: 70%;
   }
 `;
+
+export const BtnBox = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.5em;
+
+  span {
+    color: #4c79ff;
+    cursor: pointer;
+  }
+`;

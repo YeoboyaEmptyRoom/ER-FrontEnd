@@ -7,7 +7,8 @@ export const Layer = styled.div`
   background: ${Palette.PRIMARY_P20};
   position: absolute;
   top: 0;
-  left: 0;
+  left: ${({ form }: { form: 'signup' | 'signin' }) =>
+    form === 'signin' ? 0 : 50}%;
   box-shadow: inset 0px 0px 30px rgba(0, 0, 0, 0.25);
   color: ${Palette.NATURAL_N30};
   text-align: center;
@@ -16,4 +17,5 @@ export const Layer = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 1.5em;
+  transition: 1s;
 `;
