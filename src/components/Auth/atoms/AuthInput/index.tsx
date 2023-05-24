@@ -1,15 +1,17 @@
 import { HTMLInputTypeAttribute, useState } from 'react';
-import { UseFormRegisterReturn } from 'react-hook-form';
+import { UseFormRegisterReturn, UseFormWatch } from 'react-hook-form';
 import * as S from './style';
+import IsNotNull from '@/lib/isNotNull';
 
 interface Props {
   type?: HTMLInputTypeAttribute;
   placeholder?: string;
   register: UseFormRegisterReturn;
+  value?: string;
 }
 
-const AuthInput = ({ type = 'text', placeholder, register }: Props) => {
-  const [isHide, setHide] = useState(false);
+const AuthInput = ({ type = 'text', placeholder, register, value }: Props) => {
+  const [isHide, setHide] = useState(true);
 
   return (
     <S.Layer>
@@ -18,7 +20,7 @@ const AuthInput = ({ type = 'text', placeholder, register }: Props) => {
         placeholder={placeholder}
         {...register}
       />
-      {type === 'password' && (
+      {type === 'password' && IsNotNull(value) && (
         <div onClick={() => setHide(!isHide)}>
           {type === 'password' && !!isHide ? (
             <S.OpenEyeBtn />

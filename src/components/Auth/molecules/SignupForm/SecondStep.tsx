@@ -15,8 +15,18 @@ const SecondStep = ({ register, watch, submit }: Props) => {
   return (
     <S.Form>
       <S.InputBox>
-        <AuthInput placeholder="비밀번호" register={register('pw')} />
-        <AuthInput placeholder="비밀번호 확인" register={register('pwCheck')} />
+        <AuthInput
+          placeholder="비밀번호"
+          register={register('pw')}
+          type="password"
+          value={watch('pw')}
+        />
+        <AuthInput
+          placeholder="비밀번호 확인"
+          register={register('pwCheck')}
+          type="password"
+          value={watch('pwCheck')}
+        />
       </S.InputBox>
       <SubmitButton
         type="submit"

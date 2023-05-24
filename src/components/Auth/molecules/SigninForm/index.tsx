@@ -25,7 +25,12 @@ const SigninForm = () => {
     <S.Form onSubmit={handleSubmit(onSubmit, onError)}>
       <S.InputBox>
         <AuthInput placeholder="아이디" register={register('id')} />
-        <AuthInput placeholder="비밀번호" register={register('pw')} />
+        <AuthInput
+          placeholder="비밀번호"
+          register={register('pw')}
+          type="password"
+          value={watch('pw')}
+        />
       </S.InputBox>
       <SubmitButton
         type="submit"

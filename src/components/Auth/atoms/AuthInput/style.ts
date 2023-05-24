@@ -31,9 +31,11 @@ export const Input = styled.input`
 export const OpenEyeBtn = styled(OpenEye)`
   position: absolute;
   right: 1.25em;
+  transform: translateY(-50%);
 `;
 
 export const CloseEyeBtn = styled(CloseEye)`
   position: absolute;
   right: 1.25em;
+  transform: translateY(-50%);
 `;
