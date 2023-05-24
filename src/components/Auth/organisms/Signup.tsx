@@ -1,12 +1,12 @@
-import AuthForm from '../../molecules/SignupForm';
-import AuthLogo from '../../molecules/AuthLogo';
+import SignupForm from '../molecules/SignupForm';
+import AuthLogo from '../molecules/AuthLogo';
 import { Layer } from './style';
 
 const Signup = () => {
   return (
     <Layer>
       <AuthLogo />
-      <AuthForm />
+      <SignupForm />
     </Layer>
   );
 };

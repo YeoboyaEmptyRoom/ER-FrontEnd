@@ -1,6 +1,6 @@
-import { HTMLInputTypeAttribute, InputHTMLAttributes, useState } from 'react';
-import * as S from './style';
+import { HTMLInputTypeAttribute, useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
+import * as S from './style';
 
 interface Props {
   type?: HTMLInputTypeAttribute;

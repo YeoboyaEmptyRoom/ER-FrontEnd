@@ -5,6 +5,7 @@ export const Layer = styled.form`
   display: flex;
   margin-left: 150%;
   justify-content: space-between;
+  gap: 20%;
 
   > div {
     transform: translateX(
@@ -14,11 +15,12 @@ export const Layer = styled.form`
 `;
 
 export const Form = styled.div`
-  width: 40%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 5em;
   transition: 1s;
+  justify-content: end;
 `;
 
 export const InputBox = styled.div`

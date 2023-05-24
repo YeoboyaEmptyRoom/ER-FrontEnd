@@ -1,11 +1,11 @@
-import SignupInfoType from '@/types/components/Auth';
-import { useEffect, useState } from 'react';
+import { SignupInfoType } from '@/types/components/Auth';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import * as S from '../Common/Form/style';
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
-import { Layer } from './style';
 
-const AuthForm = () => {
+const SignupForm = () => {
   const { register, handleSubmit, watch } = useForm<SignupInfoType>({
     defaultValues: {
       id: '',
@@ -21,11 +21,11 @@ const AuthForm = () => {
     console.log(e);
   };
   return (
-    <Layer step={step} onSubmit={handleSubmit(onSuccess)}>
+    <S.Layer step={step} onSubmit={handleSubmit(onSuccess)}>
       <FirstStep register={register} watch={watch} submit={() => setStep(2)} />
       <SecondStep register={register} watch={watch} submit={() => {}} />
-    </Layer>
+    </S.Layer>
   );
 };
 
-export default AuthForm;
+export default SignupForm;

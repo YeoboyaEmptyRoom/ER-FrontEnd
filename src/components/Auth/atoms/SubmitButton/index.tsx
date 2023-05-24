@@ -4,7 +4,7 @@ import { Button } from './style';
 interface Props {
   isCheck: boolean;
   children: string;
-  onClick: () => void;
+  onClick?: () => void;
   type?: 'submit' | 'reset' | 'button' | undefined;
 }
 

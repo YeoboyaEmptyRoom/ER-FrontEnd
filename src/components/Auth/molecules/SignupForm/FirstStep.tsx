@@ -1,9 +1,9 @@
+import IsNotNull from '@/lib/isNotNull';
+import { SignupInfoType } from '@/types/components/Auth';
 import { UseFormRegister, UseFormWatch } from 'react-hook-form';
 import AuthInput from '../../atoms/AuthInput';
 import SubmitButton from '../../atoms/SubmitButton';
-import * as S from './style';
-import SignupInfoType from '@/types/components/Auth';
-import IsNotNull from '@/lib/isNotNull';
+import * as S from '../Common/Form/style';
 
 interface Props {
   register: UseFormRegister<SignupInfoType>;
