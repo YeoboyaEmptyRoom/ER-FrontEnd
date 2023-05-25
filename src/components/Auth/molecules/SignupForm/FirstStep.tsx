@@ -1,29 +1,15 @@
 import IsNotNull from '@/lib/isNotNull';
-import { SignupInfoType } from '@/types/components/Auth';
+import { SignupInfoType, SignupStepProps } from '@/types/components/Auth';
 import { UseFormRegister, UseFormWatch } from 'react-hook-form';
 import AuthInput from '../../atoms/AuthInput';
-import SubmitButton from '../../atoms/SubmitButton';
+import SubmitButton from '../../atoms/AuthButton';
 import * as S from '../Common/Form/style';
 
-interface Props {
-  register: UseFormRegister<SignupInfoType>;
-  watch: UseFormWatch<SignupInfoType>;
-  submit: () => void;
-}
-
-const FirstStep = ({ register, watch, submit }: Props) => {
+const FirstStep = ({ register, watch, submit }: SignupStepProps) => {
   return (
     <S.Form>
       <S.InputBox>
-        <AuthInput
-          placeholder="아이디"
-          register={register('id', {
-            pattern: {
-              value: /a/,
-              message: '아이디는 6~12자 이내로 작성해주세요',
-            },
-          })}
-        />
+        <AuthInput placeholder="아이디" register={register('id')} />
         <S.EmailBox>
           <AuthInput
             type="email"

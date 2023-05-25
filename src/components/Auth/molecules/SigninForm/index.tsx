@@ -4,7 +4,7 @@ import { SigninInfoType } from '@/types/components/Auth';
 import { FieldErrors, useForm } from 'react-hook-form';
 import { useSetRecoilState } from 'recoil';
 import AuthInput from '../../atoms/AuthInput';
-import SubmitButton from '../../atoms/SubmitButton';
+import SubmitButton from '../../atoms/AuthButton';
 import * as S from '../Common/Form/style';
 
 const SigninForm = () => {
@@ -16,7 +16,7 @@ const SigninForm = () => {
   });
   const setForm = useSetRecoilState(isForm);
 
-  const onSubmit = (e: SigninInfoType) => {
+  const onSuccess = (e: SigninInfoType) => {
     console.log(e);
   };
 
@@ -25,7 +25,7 @@ const SigninForm = () => {
   };
 
   return (
-    <S.Form onSubmit={handleSubmit(onSubmit, onError)}>
+    <S.Form onSubmit={handleSubmit(onSuccess, onError)}>
       <S.InputBox>
         <AuthInput placeholder="아이디" register={register('id')} />
         <AuthInput

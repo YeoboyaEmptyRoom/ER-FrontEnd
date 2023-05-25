@@ -1,4 +1,3 @@
-import { ButtonHTMLAttributes } from 'react';
 import { Button } from './style';
 
 interface Props {
@@ -8,7 +7,7 @@ interface Props {
   type?: 'submit' | 'reset' | 'button' | undefined;
 }
 
-const SubmitButton = ({ isCheck, onClick, children, type }: Props) => {
+const AuthButton = ({ isCheck, onClick, children, type }: Props) => {
   return (
     <Button isCheck={isCheck} onClick={onClick} type={type}>
       {children}
@@ -16,4 +15,4 @@ const SubmitButton = ({ isCheck, onClick, children, type }: Props) => {
   );
 };
 
-export default SubmitButton;
+export default AuthButton;

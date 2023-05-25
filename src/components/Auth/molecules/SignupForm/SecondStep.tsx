@@ -2,13 +2,13 @@ import IsNotNull from '@/lib/isNotNull';
 import { SignupInfoType } from '@/types/components/Auth';
 import { UseFormRegister, UseFormWatch } from 'react-hook-form';
 import AuthInput from '../../atoms/AuthInput';
-import SubmitButton from '../../atoms/SubmitButton';
+import SubmitButton from '../../atoms/AuthButton';
 import * as S from '../Common/Form/style';
 
 interface Props {
   register: UseFormRegister<SignupInfoType>;
   watch: UseFormWatch<SignupInfoType>;
-  submit: () => void;
+  submit?: () => void;
 }
 
 const SecondStep = ({ register, watch, submit }: Props) => {
@@ -30,7 +30,7 @@ const SecondStep = ({ register, watch, submit }: Props) => {
       </S.InputBox>
       <SubmitButton
         type="submit"
-        onClick={() => submit()}
+        onClick={() => !!submit && submit()}
         isCheck={IsNotNull(watch('pw')) && IsNotNull(watch('pw'))}
       >
         가입하기
