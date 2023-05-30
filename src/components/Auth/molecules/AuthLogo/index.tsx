@@ -4,7 +4,7 @@ import { Layer } from './style';
 const AuthLogo = () => {
   return (
     <Layer>
-      <Logo />
+      <Logo width="250" height="281" />
       <h1>빈 방</h1>
     </Layer>
   );
