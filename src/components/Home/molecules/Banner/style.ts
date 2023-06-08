@@ -16,7 +16,7 @@ export const Layer = styled.div`
     z-index: -1;
   }
 
-  > h3 {
+  > h2 {
     color: ${Palette.NATURAL_N30};
   }
 `;

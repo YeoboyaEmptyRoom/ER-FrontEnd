@@ -5,7 +5,7 @@ export const Layer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 300px;
+  width: 320px;
 `;
 
 export const RoomImg = styled(Image)`

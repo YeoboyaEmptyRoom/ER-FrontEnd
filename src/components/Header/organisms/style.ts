@@ -17,6 +17,7 @@ export const LogoBox = styled.div`
   display: flex;
   gap: 2em;
   align-items: center;
+  color: ${Palette.PRIMARY_P10};
   cursor: pointer;
 `;
 
