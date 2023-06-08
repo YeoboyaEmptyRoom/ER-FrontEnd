@@ -9,4 +9,5 @@ export const Layer = styled.footer`
   align-items: center;
   background: ${Palette.PRIMARY_P20};
   color: ${Palette.NATURAL_N30};
+  margin-top: 31px;
 `;
