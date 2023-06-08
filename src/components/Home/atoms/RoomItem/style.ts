@@ -6,6 +6,7 @@ export const Layer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 320px;
+  cursor: pointer;
 `;
 
 export const RoomImg = styled(Image)`
