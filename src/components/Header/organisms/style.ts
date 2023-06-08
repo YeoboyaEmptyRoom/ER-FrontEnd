@@ -17,6 +17,7 @@ export const LogoBox = styled.div`
   display: flex;
   gap: 2em;
   align-items: center;
+  color: ${Palette.PRIMARY_P10};
   cursor: pointer;
 `;
 
@@ -31,8 +32,13 @@ export const AuthBtnBox = styled.button`
   width: 15%;
   height: 4em;
   color: ${Palette.NATURAL_N30};
-  background: ${Palette.PRIMARY_P10};
+  background: ${Palette.PRIMARY_P30};
   border: none;
   border-radius: 0.5em;
+  transition: 0.25s;
   cursor: pointer;
+
+  &:hover {
+    background: ${Palette.PRIMARY_P20};
+  }
 `;
