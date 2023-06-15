@@ -8,7 +8,7 @@ export const Layer = styled.div`
   border-bottom: 1px solid ${Palette.NATURAL_N20};
 
   > span {
-    width: 1px;
+    width: 2px;
     height: 30px;
     background: ${Palette.NATURAL_N20};
   }

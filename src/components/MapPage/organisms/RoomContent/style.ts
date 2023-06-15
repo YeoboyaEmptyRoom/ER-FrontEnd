@@ -2,7 +2,7 @@ import { Palette } from '@/style/global';
 import styled from '@emotion/styled';
 
 export const Layer = styled.div`
-  width: 22%;
+  width: 25%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -11,8 +11,16 @@ export const Layer = styled.div`
 `;
 
 export const RoomListBox = styled.div`
-  padding-top: 35px;
+  margin-top: ${({ roomInfo }: { roomInfo: boolean }) =>
+    roomInfo ? '35px' : 0};
   overflow-y: auto;
+  display: flex;
+  justify-content: ${({ roomInfo }: { roomInfo: boolean }) =>
+    roomInfo ? 'baseline' : 'center'};
+  align-items: center;
+  gap: 2em;
+  height: 100%;
+  flex-direction: column;
 
   ::-webkit-scrollbar {
     width: 0;
