@@ -5,7 +5,7 @@ import { FieldErrors, useForm } from 'react-hook-form';
 import { useSetRecoilState } from 'recoil';
 import AuthInput from '../../atoms/AuthInput';
 import SubmitButton from '../../atoms/AuthButton';
-import * as S from '../Common/Form/style';
+import * as S from '../../common/Form/style';
 
 const SigninForm = () => {
   const { register, handleSubmit, watch } = useForm<SigninInfoType>({

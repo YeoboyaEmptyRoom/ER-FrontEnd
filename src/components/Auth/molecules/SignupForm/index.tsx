@@ -1,9 +1,9 @@
+import IsNotNull from '@/lib/isNotNull';
 import { SignupInfoType } from '@/types/components/Auth';
-import { useState } from 'react';
 import { FieldErrors, useForm } from 'react-hook-form';
-import * as S from '../Common/Form/style';
-import FirstStep from './FirstStep';
-import SecondStep from './SecondStep';
+import SubmitButton from '../../atoms/AuthButton';
+import AuthInput from '../../atoms/AuthInput';
+import * as S from '../../common/Form/style';
 
 const SignupForm = () => {
   const { register, handleSubmit, watch } = useForm<SignupInfoType>({
@@ -15,7 +15,6 @@ const SignupForm = () => {
       pwCheck: '',
     },
   });
-  const [step, setStep] = useState<number>(1);
 
   const onSuccess = (e: SignupInfoType) => {
     console.log(e);
@@ -26,10 +25,39 @@ const SignupForm = () => {
   };
 
   return (
-    <S.Layer step={step} onSubmit={handleSubmit(onSuccess, onError)}>
-      <FirstStep register={register} watch={watch} submit={() => setStep(2)} />
-      <SecondStep register={register} watch={watch} />
-    </S.Layer>
+    <S.Form onSubmit={handleSubmit(onSuccess, onError)}>
+      <S.InputBox>
+        <AuthInput placeholder="아이디" register={register('id')} />
+        <AuthInput
+          type="email"
+          placeholder="이메일"
+          register={register('email')}
+        />
+        <AuthInput
+          placeholder="비밀번호"
+          register={register('pw')}
+          type="password"
+          value={watch('pw')}
+        />
+        <AuthInput
+          placeholder="비밀번호 확인"
+          register={register('pwCheck')}
+          type="password"
+          value={watch('pwCheck')}
+        />
+      </S.InputBox>
+      <SubmitButton
+        type="submit"
+        isCheck={
+          IsNotNull(watch('id')) &&
+          IsNotNull(watch('email')) &&
+          IsNotNull(watch('pw')) &&
+          IsNotNull(watch('pwCheck'))
+        }
+      >
+        가입하기
+      </SubmitButton>
+    </S.Form>
   );
 };
 

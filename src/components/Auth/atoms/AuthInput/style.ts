@@ -32,10 +32,12 @@ export const OpenEyeBtn = styled(OpenEye)`
   position: absolute;
   right: 1.25em;
   transform: translateY(-50%);
+  cursor: pointer;
 `;
 
 export const CloseEyeBtn = styled(CloseEye)`
   position: absolute;
   right: 1.25em;
   transform: translateY(-50%);
+  cursor: pointer;
 `;
