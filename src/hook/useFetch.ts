@@ -1,17 +1,16 @@
 import API from '@/lib/API';
 import { Method } from 'axios';
 import { useCallback, useState } from 'react';
-import { toast } from 'react-toastify';
 
-interface Props {
+interface Props<T> {
   url: string;
   method?: Method;
-  onSuccess?: () => void;
+  onSuccess?: (data: T) => void;
   onFailure?: () => void;
 }
 
-const useFetch = ({ url, method, onSuccess, onFailure }: Props) => {
-  const [data, setData] = useState(null);
+const useFetch = <T>({ url, method, onSuccess, onFailure }: Props<T>) => {
+  const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState(null);
 
@@ -25,11 +24,11 @@ const useFetch = ({ url, method, onSuccess, onFailure }: Props) => {
           data: body,
         });
         await setData(data);
-        onSuccess && (await onSuccess());
+        onSuccess && onSuccess(data);
       } catch (e: any) {
         console.log(e);
         await setError(e);
-        onFailure && (await onFailure());
+        onFailure && onFailure();
       } finally {
         setLoading(false);
       }
