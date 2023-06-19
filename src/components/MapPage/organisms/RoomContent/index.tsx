@@ -5,8 +5,6 @@ import { useState } from 'react';
 import OpenDoor from '../../../../../public/static/svg/OpenDoor.svg';
 
 const RoomContent = () => {
-  const [roomInfo, setRoomInfo] = useState([]);
-
   return (
     <Layer>
       <DepositBtnBox />

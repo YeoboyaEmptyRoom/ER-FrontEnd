@@ -4,13 +4,14 @@ import styled from '@emotion/styled';
 export const Button = styled.button`
   width: 100%;
   height: 60px;
-  color: ${Palette.NATURAL_N10};
+  color: ${({ active }: { active: boolean }) =>
+    active ? Palette.PRIMARY_P10 : Palette.NATURAL_N10};
   transition: all 0.2s;
   background: ${Palette.NATURAL_N30};
   border: none;
+  cursor: pointer;
 
-  :hover,
-  :active {
+  :hover {
     color: ${Palette.PRIMARY_P10};
   }
 `;

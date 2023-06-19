@@ -4,10 +4,25 @@ import { Layer } from './style';
 import { useEffect } from 'react';
 import { RoomType } from '@/types/components/Room';
 import OpenDoor from '../../../../../public/static/svg/OpenDoor.svg';
+import { useRecoilValue } from 'recoil';
+import { rentType } from '@/atom/components/Auth';
 
 const RoomList = ({ columns }: { columns: number }) => {
+  const roomType = useRecoilValue(rentType);
+
+  const url = () => {
+    switch (roomType) {
+      case '전세':
+        return 'lease/';
+      case '월세':
+        return 'monthly/';
+      default:
+        return '';
+    }
+  };
+
   const { fetch, data } = useFetch<RoomType[]>({
-    url: '/main/rooms/',
+    url: `/main/rooms/${url()}`,
     method: 'get',
     onSuccess(data) {
       console.log(data);
@@ -16,7 +31,7 @@ const RoomList = ({ columns }: { columns: number }) => {
 
   useEffect(() => {
     fetch();
-  }, []);
+  }, [roomType]);
 
   return (
     <Layer column={columns}>
