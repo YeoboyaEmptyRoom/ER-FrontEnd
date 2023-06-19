@@ -1,11 +1,17 @@
+import useFetch from '@/hook/useFetch';
 import IsNotNull from '@/lib/isNotNull';
 import { SignupInfoType } from '@/types/components/Auth';
 import { FieldErrors, useForm } from 'react-hook-form';
 import SubmitButton from '../../atoms/AuthButton';
 import AuthInput from '../../atoms/AuthInput';
 import * as S from '../../common/Form/style';
+import { useSetRecoilState } from 'recoil';
+import { isForm } from '@/atom/components/Auth';
+import { toast } from 'react-toastify';
 
 const SignupForm = () => {
+  const setForm = useSetRecoilState(isForm);
+
   const { register, handleSubmit, watch } = useForm<SignupInfoType>({
     defaultValues: {
       id: '',
@@ -15,9 +21,26 @@ const SignupForm = () => {
       pwCheck: '',
     },
   });
+  const { fetch, error } = useFetch({
+    url: '/user/signup/',
+    method: 'post',
+    onSuccess() {
+      toast.success('회원가입을 성공했습니다');
+      setForm('signin');
+    },
+    onFailure() {
+      console.log(error);
+    },
+  });
 
-  const onSuccess = (e: SignupInfoType) => {
+  const onSubmit = (e: SignupInfoType) => {
     console.log(e);
+    fetch({
+      email: watch('email'),
+      username: watch('id'),
+      password: watch('pw'),
+      password_confirm: watch('pwCheck'),
+    });
   };
 
   const onError = (e: FieldErrors<SignupInfoType>) => {
@@ -25,7 +48,7 @@ const SignupForm = () => {
   };
 
   return (
-    <S.Form onSubmit={handleSubmit(onSuccess, onError)}>
+    <S.Form onSubmit={handleSubmit(onSubmit, onError)}>
       <S.InputBox>
         <AuthInput placeholder="아이디" register={register('id')} />
         <AuthInput

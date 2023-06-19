@@ -6,18 +6,38 @@ import { useSetRecoilState } from 'recoil';
 import AuthInput from '../../atoms/AuthInput';
 import SubmitButton from '../../atoms/AuthButton';
 import * as S from '../../common/Form/style';
+import useFetch from '@/hook/useFetch';
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const SigninForm = () => {
+  const setForm = useSetRecoilState(isForm);
+  const router = useRouter();
+
   const { register, handleSubmit, watch } = useForm<SigninInfoType>({
     defaultValues: {
       id: '',
       pw: '',
     },
   });
-  const setForm = useSetRecoilState(isForm);
 
-  const onSuccess = (e: SigninInfoType) => {
-    console.log(e);
+  const { fetch, error } = useFetch({
+    url: '/user/login/',
+    method: 'post',
+    onSuccess() {
+      toast.success('로그인을 성공했습니다');
+      router.push('/');
+    },
+    onFailure() {
+      console.log(error);
+    },
+  });
+
+  const onSubmit = (e: SigninInfoType) => {
+    fetch({
+      email: watch('id'),
+      password: watch('pw'),
+    });
   };
 
   const onError = (e: FieldErrors<SigninInfoType>) => {
@@ -25,7 +45,7 @@ const SigninForm = () => {
   };
 
   return (
-    <S.Form onSubmit={handleSubmit(onSuccess, onError)}>
+    <S.Form onSubmit={handleSubmit(onSubmit, onError)}>
       <S.InputBox>
         <AuthInput placeholder="아이디" register={register('id')} />
         <AuthInput

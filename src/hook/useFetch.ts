@@ -1,33 +1,43 @@
 import API from '@/lib/API';
 import { Method } from 'axios';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
+import { toast } from 'react-toastify';
 
 interface Props {
   url: string;
-  method: Method;
-  body: any;
+  method?: Method;
+  onSuccess?: () => void;
+  onFailure?: () => void;
 }
 
-const useFetch = async ({ url, method, body }: Props) => {
+const useFetch = ({ url, method, onSuccess, onFailure }: Props) => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState(null);
 
-  try {
-    setLoading(true);
-    const { data } = await API({
-      url: url,
-      method: method,
-      data: body,
-    });
-    setData(data);
-  } catch (e: any) {
-    setError(e);
-  } finally {
-    setLoading(false);
-  }
+  const fetch = useCallback(
+    async (body?: any) => {
+      setLoading(true);
+      try {
+        const { data } = await API({
+          url: url,
+          method: method ?? 'get',
+          data: body,
+        });
+        await setData(data);
+        onSuccess && (await onSuccess());
+      } catch (e: any) {
+        console.log(e);
+        await setError(e);
+        onFailure && (await onFailure());
+      } finally {
+        setLoading(false);
+      }
+    },
+    [method, url, onSuccess, onFailure]
+  );
 
-  return { data, loading, error };
+  return { data, loading, error, fetch };
 };
 
 export default useFetch;
