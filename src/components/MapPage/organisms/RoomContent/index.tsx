@@ -5,19 +5,11 @@ import { useState } from 'react';
 import OpenDoor from '../../../../../public/static/svg/OpenDoor.svg';
 
 const RoomContent = () => {
-  const [roomInfo, setRoomInfo] = useState([]);
   return (
     <Layer>
       <DepositBtnBox />
-      <RoomListBox roomInfo={roomInfo.length !== 0}>
-        {roomInfo.length !== 0 ? (
-          <RoomList columns={1} />
-        ) : (
-          <>
-            <OpenDoor />
-            <h4>현재 지도 주변에 빈 방이 없습니다</h4>
-          </>
-        )}
+      <RoomListBox>
+        <RoomList columns={1} />
       </RoomListBox>
     </Layer>
   );

@@ -11,12 +11,10 @@ export const Layer = styled.div`
 `;
 
 export const RoomListBox = styled.div`
-  margin-top: ${({ roomInfo }: { roomInfo: boolean }) =>
-    roomInfo ? '35px' : 0};
+  margin-top: 35px;
   overflow-y: auto;
   display: flex;
-  justify-content: ${({ roomInfo }: { roomInfo: boolean }) =>
-    roomInfo ? 'baseline' : 'center'};
+  justify-content: baseline;
   align-items: center;
   gap: 2em;
   height: 100%;
