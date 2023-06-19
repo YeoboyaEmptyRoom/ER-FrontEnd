@@ -3,10 +3,11 @@ import roomImg from '../../../../../public/static/png/roomImg.png';
 import { RoomType } from '@/types/components/Room';
 interface Props {
   data: RoomType;
+  id: number;
 }
-const RoomItem = ({ data }: Props) => {
+const RoomItem = ({ data, id }: Props) => {
   return (
-    <S.Layer>
+    <S.Layer href={`/room/${id}`}>
       <S.RoomImg src={roomImg} alt="RoomImg" width="150" height="150" />
       <S.RoomInfoBox>
         <h3>

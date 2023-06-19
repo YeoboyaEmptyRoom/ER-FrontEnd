@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
+import Link from 'next/link';
 
-export const Layer = styled.div`
+export const Layer = styled(Link)`
   display: flex;
   justify-content: space-between;
   align-items: center;
