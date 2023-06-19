@@ -9,10 +9,10 @@ const RoomItem = ({ data }: Props) => {
     <S.Layer>
       <S.RoomImg src={roomImg} alt="RoomImg" width="150" height="150" />
       <S.RoomInfoBox>
-        <h2>{data.rent_type}</h2>
-        <p>{data.area}</p>
-        <p>{data.location}</p>
-        <p>{data.room_type}</p>
+        <h3>{data.rent_type}</h3>
+        <h4>{data.area}</h4>
+        <h4>{data.location}</h4>
+        <h4>{data.room_type}</h4>
       </S.RoomInfoBox>
     </S.Layer>
   );

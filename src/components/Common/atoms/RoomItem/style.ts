@@ -6,6 +6,7 @@ export const Layer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 320px;
+  gap: 1em;
   cursor: pointer;
 `;
 
