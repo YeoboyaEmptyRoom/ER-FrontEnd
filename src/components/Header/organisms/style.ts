@@ -1,5 +1,6 @@
 import { Palette } from '@/style/global';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 export const Layer = styled.header`
   width: 100%;
@@ -12,7 +13,7 @@ export const Layer = styled.header`
   gap: 5%;
 `;
 
-export const LogoBox = styled.div`
+export const LogoBox = styled(Link)`
   width: 15%;
   display: flex;
   gap: 2em;
@@ -28,7 +29,7 @@ export const NavList = styled.div`
   align-items: center;
 `;
 
-export const AuthBtnBox = styled.button`
+export const AuthBtnBox = styled(Link)`
   width: 15%;
   height: 4em;
   color: ${Palette.NATURAL_N30};
