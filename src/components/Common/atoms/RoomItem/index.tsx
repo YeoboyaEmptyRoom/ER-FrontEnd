@@ -7,7 +7,7 @@ interface Props {
 }
 const RoomItem = ({ data, id }: Props) => {
   return (
-    <S.Layer href={`/room/${id}`}>
+    <S.Layer href={`/room?detail=${id}`}>
       <S.RoomImg src={roomImg} alt="RoomImg" width="150" height="150" />
       <S.RoomInfoBox>
         <h3>
