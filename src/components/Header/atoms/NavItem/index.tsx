@@ -3,11 +3,12 @@ import { Layer } from './style';
 interface Props {
   content: string;
   description?: string;
+  href: string;
 }
 
-const NavItem = ({ content, description = '' }: Props) => {
+const NavItem = ({ content, description = '', href }: Props) => {
   return (
-    <Layer>
+    <Layer href={href}>
       <h2>{content}</h2>
       <p>{description}</p>
     </Layer>
