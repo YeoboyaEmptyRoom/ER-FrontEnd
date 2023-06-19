@@ -1,12 +1,11 @@
-import Logo from '../../../../public/static/svg/Logo.svg';
 import NavItem from '../atoms/NavItem';
 import * as S from './style';
-
+import Logo from '../../../../public/static/svg/Logo.svg';
 const Header = () => {
   return (
     <S.Layer>
       <S.LogoBox>
-        <Logo width="40" height="45" />
+        <Logo width="40" height="44" />
         <h1>빈 방</h1>
       </S.LogoBox>
       <S.NavList>

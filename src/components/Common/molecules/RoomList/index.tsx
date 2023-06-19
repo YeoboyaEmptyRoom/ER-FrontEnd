@@ -1,9 +1,9 @@
 import RoomItem from '../../atoms/RoomItem';
 import { Layer } from './style';
 
-const RoomList = () => {
+const RoomList = ({ columns }: { columns: number }) => {
   return (
-    <Layer>
+    <Layer column={columns}>
       <RoomItem />
       <RoomItem />
       <RoomItem />
