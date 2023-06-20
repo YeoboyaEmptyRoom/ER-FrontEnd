@@ -2,7 +2,7 @@ name: front-ci
 
 on:
   pull_request:
-     branches:
+    branches:
       - 'develop'
       - 'master'
   push:
@@ -10,15 +10,15 @@ on:
       - 'develop'
       - 'master'
 jobs:
-  GCMS-CI:
+  FRONT-CI:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'yarn' 
-    - run: yarn install --frozen-lockfile
-    - run: yarn build
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
