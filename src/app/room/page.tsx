@@ -1,17 +1,18 @@
 'use client';
 
-import 'swiper/css';
-import Header from '@/components/Header/organisms';
-import { BottomWrapper } from '@/components/DetailPage/template/style';
 import ImgSlider from '@/components/DetailPage/organism/ImgSlider';
+import InfoLayer from '@/components/DetailPage/organism/InfoLayer';
+import { ContentWrapper } from '@/components/DetailPage/template/style';
+import Header from '@/components/Header/organisms';
 
 const RoomDetail = () => {
   return (
     <>
       <Header />
-      <BottomWrapper>
+      <ContentWrapper>
         <ImgSlider />
-      </BottomWrapper>
+        <InfoLayer />
+      </ContentWrapper>
     </>
   );
 };
