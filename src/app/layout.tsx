@@ -3,8 +3,6 @@
 import GlobalStyle from '@/style/global';
 import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
-import '../style/globals.css';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default function RootLayout({
   children,

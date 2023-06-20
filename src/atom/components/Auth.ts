@@ -6,6 +6,6 @@ export const isForm = atom<'signin' | 'signup'>({
 });
 
 export const rentType = atom<'' | '전세' | '월세'>({
-  key: 'isForm',
+  key: 'rentType',
   default: '',
 });

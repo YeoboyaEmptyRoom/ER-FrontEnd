@@ -37,7 +37,7 @@ const RoomList = ({ columns }: { columns: number }) => {
     <Layer column={columns}>
       {data && data.length > 0 ? (
         data.map((item, key) => {
-          return <RoomItem data={item} key={key} />;
+          return <RoomItem data={item} id={key} key={key} />;
         })
       ) : (
         <>

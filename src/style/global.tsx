@@ -1,4 +1,6 @@
 import { Global, css } from '@emotion/react';
+import 'react-toastify/dist/ReactToastify.css';
+import 'swiper/css';
 
 const color = {
   '--PRIMARY_P10': '#FF8833',
@@ -40,6 +42,11 @@ const style = css`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration: none;
+  }
+
+  a {
+    color: inherit;
   }
 
   body {

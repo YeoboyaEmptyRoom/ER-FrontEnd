@@ -39,6 +39,9 @@ export const AuthBtnBox = styled(Link)`
   transition: 0.25s;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background: ${Palette.PRIMARY_P20};
